@@ -15,15 +15,13 @@ class GradeCalculator : public QWidget
 
 public:
     explicit GradeCalculator(QWidget *parent = 0);
-
+    void reset();
     ~GradeCalculator();
 
 private:
     Ui::GradeCalculator *ui;
     int midterm_1_value = 0;
     int midterm_2_value = 0;
-    int hw_grades[8] = {};
-    int final_value = 0;
     double final_grade = 0;
     int course_type = 0;
     bool schema_a = true;
@@ -48,7 +46,6 @@ protected slots:
     void on_schema_b_toggled(bool checked);
     void on_course_name_box_currentIndexChanged(int index);
     void calculateGrades();
-private slots:
     void on_slide1_valueChanged(int value);
     void on_spin1_valueChanged(int value);
     void on_slide2_valueChanged(int value);
