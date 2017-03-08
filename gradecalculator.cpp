@@ -148,11 +148,12 @@ void GradeCalculator::on_schema_b_toggled(bool checked)
 }
 
 void GradeCalculator::calculateGrades(){
-    if (schema_a == true)
+
+    if (schema_a == true && course_type == 0)
     {
-        final_grade = 0.25 * (hw1 + hw2+hw3+hw4+hw5+hw6+hw7+hw8)/8 + .20 * midterm_1_value + .20 * midterm_2_value + 0.35 * final_value;
+        final_grade = 0.25 * (hw1+ hw2+hw3+hw4+hw5+hw6+hw7+hw8)/8 + .20 * midterm_1_value + .20 * midterm_2_value + 0.35 * final_value;
     }
-    else if (schema_b == true)
+    else if (schema_b == true && course_type == 0)
     {
         int high_midterm = 0;
         if (midterm_2_value <= midterm_1_value){
@@ -162,6 +163,21 @@ void GradeCalculator::calculateGrades(){
             high_midterm = midterm_2_value;
         }
         final_grade = 0.25 * (hw1+hw2+hw3+hw4+hw5+hw6+hw7+hw8)/8 + 0.3 * high_midterm + 0.45* final_value;
+    }
+    if (schema_a == true && course_type == 1)
+    {
+        final_grade = 0.35 * (hw1+ hw2+hw3+hw4+hw5+hw6+hw7+hw8)/8 + .10 * midterm_1_value + .20 * midterm_2_value + 0.35 * final_value;
+    }
+    else if (schema_b == true && course_type == 1)
+    {
+        int high_midterm = 0;
+        if (midterm_2_value <= midterm_1_value){
+            high_midterm = midterm_1_value;
+        }
+        else{
+            high_midterm = midterm_2_value;
+        }
+        final_grade = 0.35 * (hw1+hw2+hw3+hw4+hw5+hw6+hw7+hw8)/8 + 0.2 * high_midterm + 0.45* final_value;
     }
     QString final = QString::number(final_grade);
     ui->final_score_label->setText(final);
@@ -271,12 +287,12 @@ void GradeCalculator::reset(){
     schema_b = false;
     hw1 = 0;
     hw2 = 0;
-    hw3=0;
-    hw4=0;
-    hw5=0;
-    hw6=0;
-    hw7=0;
-    hw8=0;
+    hw3 = 0;
+    hw4 = 0;
+    hw5 = 0;
+    hw6 = 0;
+    hw7 = 0;
+    hw8 = 0;
     ui->midterm1_slider->setValue(0);
     ui->midterm2_slider->setValue(0);
     ui->final_slider->setValue(0);

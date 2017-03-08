@@ -28,12 +28,12 @@ private:
     bool schema_b = false;
     int hw1 = 0;
     int hw2 = 0;
-    int hw3=0;
-    int hw4=0;
-    int hw5=0;
-    int hw6=0;
-    int hw7=0;
-    int hw8=0;
+    int hw3 = 0;
+    int hw4 = 0;
+    int hw5 =0;
+    int hw6 =0;
+    int hw7 =0;
+    int hw8 =0;
 
 protected slots:
     void on_midterm1_slider_valueChanged(int value);
