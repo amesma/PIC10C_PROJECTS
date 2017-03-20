@@ -22,7 +22,7 @@ private:
     Ui::GradeCalculator *ui;
     int midterm_1_value = 0;
     int midterm_2_value = 0;
-    double final_grade = 0;
+    double final_grade = 0.0;
     int course_type = 0;
     bool schema_a = true;
     bool schema_b = false;
@@ -34,6 +34,7 @@ private:
     int hw6 =0;
     int hw7 =0;
     int hw8 =0;
+    double final_value = 0;
 
 protected slots:
     void on_midterm1_slider_valueChanged(int value);

@@ -124,6 +124,7 @@ void GradeCalculator::on_course_name_box_currentIndexChanged(int index)
     {
         course_type = 1;
     }
+    reset();
 }
 
 
@@ -134,7 +135,7 @@ void GradeCalculator::on_schema_a_toggled(bool checked)
         schema_a = true;
         schema_b = false;
     }
-    reset();
+
 }
 
 void GradeCalculator::on_schema_b_toggled(bool checked)
@@ -144,7 +145,6 @@ void GradeCalculator::on_schema_b_toggled(bool checked)
         schema_b = true;
         schema_a = false;
     }
-    reset();
 }
 
 void GradeCalculator::calculateGrades(){
@@ -282,7 +282,8 @@ void GradeCalculator::on_spin8_valueChanged(int value)
 void GradeCalculator::reset(){
     midterm_1_value = 0;
     midterm_2_value = 0;
-    final_grade = 0;
+    final_grade = 0.0;
+    final_value = 0;
     schema_a = true;
     schema_b = false;
     hw1 = 0;
@@ -296,13 +297,13 @@ void GradeCalculator::reset(){
     ui->midterm1_slider->setValue(0);
     ui->midterm2_slider->setValue(0);
     ui->final_slider->setValue(0);
-    ui->schema_a(true);
-    ui->hw1->setValue(0);
-    ui->hw2->setValue(0);
-    ui->hw3->setValue(0);
-    ui->hw4->setValue(0);
-    ui->hw5->setValue(0);
-    ui->hw6->setValue(0);
-    ui->hw7->setValue(0);
-    ui->hw8->setValue(0);
+    //ui->schema_a->setChecked(true);
+    ui->slide1->setValue(0);
+    ui->slide2->setValue(0);
+    ui->slide3->setValue(0);
+    ui->slide4->setValue(0);
+    ui->slide5->setValue(0);
+    ui->slide6->setValue(0);
+    ui->slide7->setValue(0);
+    ui->slide8->setValue(0);
 }
